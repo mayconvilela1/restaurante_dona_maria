@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurante Dona Maria</title>
+    <style>
+        body {
+            font-family: "segoe UI", arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f3ec;
+            color: #3a2b1c;
+        }
+
+        header {
+            background-color: #a43a27;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            flex-wrap: wrap;
+        }
+
+        .logo-nome {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-nome img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8em;
+        }
+
+        header p {
+            margin: 0;
+            font-size: 1em;
+            opacity: 0.9;
+        }
+
+        #btnAtendimento {
+            background-color: #a43a27;
+            color: #fff;
+            border: none;
+            padding: 8px 15px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        /* Aba flutuante */
+        #abaAtendimento {
+            position: fixed;
+            top: 0;
+            right: -100%; /* totalmente escondida */
+            width: 300px;
+            height: 100%;
+            background-color: #a43a27;
+            color: #fff;
+            padding: 20px;
+            box-shadow: -2px 0 5px rgba(0,0,0,0.3);
+            transition: right 0.3s ease;
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        #abaAtendimento h3 {
+            margin-top: 0;
+        }
+
+        #btnFechar {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        #abaAtendimento table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        #abaAtendimento th, #abaAtendimento td {
+            border: 1px solid #fff;
+            padding: 8px;
+            text-align: left;
+        }
+
+        #abaAtendimento th {
+            background-color: rgba(255,255,255,0.2);
+        }
+
+        #abaAtendimento p {
+            margin-top: 15px;
+        }
+
+        .galeria {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            background-color: #fff;
+            padding: 20px;
+        }
+
+        .galeria img {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+
+        .info {
+            background-color: #a43a27;
+            color: #fff;
+            text-align: center;
+            padding: 25px 10px;
+        }
+
+        .info h2 {
+            margin-bottom: 10px;
+        }
+
+        .info p {
+            margin: 5px 0;
+            font-size: 1.1em;
+        }
+
+        .sobre {
+            background-color: #f8f3ec;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .sobre img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .sobre h2 {
+            color: #7c2e1e;
+            margin-bottom: 10px;
+        }
+
+        .sobre p {
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+            font-size: 1.1em;
+        }
+
+        footer {
+            background-color: #a43a27;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .galeria img {
+                width: 90%;
+                height: auto;
+            }
+
+            #btnAtendimento {
+                margin-top: 10px;
+            }
+
+            #abaAtendimento {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-nome">
+            <img src="logo.png" alt="logo Restaurante Dona Maria">
+            <div>
+                <h1>Restaurante Dona Maria</h1>
+                <p>Comida no fogão de lenha todos os dias</p>
+            </div>
+        </div>
+        <button id="btnAtendimento">Atendimento</button>
+    </header>
+
+    <!-- Aba flutuante -->
+    <div id="abaAtendimento">
+        <button id="btnFechar">&times;</button>
+        <h3>Cardápio</h3>
+        <table>
+            <tr>
+                <th>Item</th>
+                <th>Preço</th>
+                <th>Descrição</th>
+            </tr>
+            <tr>
+                <td>Marmitex P</td>
+                <td>R$ 20</td>
+                <td>1 tipo de carne do fogão</td>
+            </tr>
+            <tr>
+                <td>Marmitex M</td>
+                <td>R$ 25</td>
+                <td>2 tipos de carne do fogão</td>
+            </tr>
+            <tr>
+                <td>Marmitex G</td>
+                <td>R$ 35</td>
+                <td>Com churrasco</td>
+            </tr>
+            <tr>
+                <td>Prato feito</td>
+                <td>R$ 28</td>
+                <td>Atendemos no salão</td>
+            </tr>
+            <tr>
+                <td>Quilo com churrasco</td>
+                <td>R$ 54,99</td>
+                <td>Atendemos no salão</td>
+            </tr>
+        </table>
+        <p>Fazemos entregas grátis em toda a cidade.</p>
+    </div>
+
+    <section class="galeria">
+        <img src="prato1.jpeg" alt="Prato caseiro">
+        <img src="prato2.jpeg" alt="prato do dia">
+        <img src="ambiente.jpeg" alt="Ambiente do Restaurante">
+    </section>
+
+    <section class="sobre">
+        <img src="dona_maria.jpeg" alt="Foto da Dona Maria">
+        <h2>Sobre a Dona Maria</h2>
+        <p>Dona Maria apaixonada por culinária desde de criança, cozinhando desde de que tinha 8 anos com sua mãe para o povo da roça, prepara cada alimento com muito carinho e dedicação trazendo aquele gostinho de casa de vó.</p>
+    </section>
+
+    <section class="info">
+        <h2>Informações</h2>
+        <p><strong>Endereço:</strong> Rua Bueno Brandão, 138 - centro</p>
+        <p><strong>Horário:</strong> Funcionamos todos, das 11h às 14h</p>
+        <p><strong>Telefone e WhatsApp:</strong> (34) 3281-1238</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Restaurante Dona Maria</p>
+    </footer>
+
+    <script>
+        const btnAbrir = document.getElementById('btnAtendimento');
+        const aba = document.getElementById('abaAtendimento');
+        const btnFechar = document.getElementById('btnFechar');
+
+        btnAbrir.addEventListener('click', () => {
+            aba.style.right = '0';
+        });
+
+        btnFechar.addEventListener('click', () => {
+            aba.style.right = '-100%';
+        });
+    </script>
+</body>
+</html>
